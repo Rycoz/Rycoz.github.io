@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tera iLevel Calculator</title>
+
+  <script
+    type="text/javascript"
+    src="http://code.jquery.com/jquery-3.4.1.js"
+
+  ></script>
+
+  <script type="text/javascript">
+
+
+    window.onload=function(){
+
+$("#action").click(function(){
+  var weapon_ = $("#weapon").val();
+  var chest_ = $("#chest").val();
+  var gloves_ = $("#gloves").val();
+  var boots_ = $("#boots").val();
+  var belt_ = $("#belt").val();
+  var earring1_ = $("#earring1").val();
+  var earring2_ = $("#earring2").val();
+  var ring1_ = $("#ring1").val();
+  var ring2_ = $("#ring2").val();
+  var brooch_ = $("#brooch").val();
+  var necklace_ = $("#necklace").val();
+  var circlet_ = $("#circlet").val();
+  var innerwear_ = $("#innerwear").val();
+
+
+  var chest = 4.82;
+  var gloves = 5.4;
+  var weapon = 3.65;
+  var boots = 5.4;
+  var common = 33.76238;
+  var innerwear = common * 2;
+
+
+  var jewelry =
+    (earring1_ / common) +
+    (earring2_ / common) +
+    (ring1_ / common) +
+    (ring2_ / common) +
+    (necklace_ / common) +
+    (circlet_ / common) +
+    (brooch_ / common) +
+    (belt_ / common)
+  ;
+
+  var armor =
+    (weapon_ / weapon) +
+    (chest_ / chest) +
+    (gloves_ / gloves) +
+    (boots_ / boots) +
+    (innerwear_ / innerwear)
+  ;
+
+  var total = jewelry + armor;
+
+
+  if (document.getElementById('round').checked) {
+    $("#result").val(Math.floor(total));
+  } else {
+    $("#result").val((Math.floor(total * 1000))/1000);
+}
+
+});
+
+    }
+
+</script>
+
+</head>
+<body>
+    <h1> Tera iLevel calculator</h1>
+<form>
+<table>
+<tr>
+	<td><label>Weapon: </label></td><td><input type=text  id="weapon"></td>
+	<td><label>Chest: </label></td><td><input type=text  id="chest"></td>
+</tr>
+<tr>
+	<td><label>Gloves: </label></td><td><input type=text  id="gloves"></td>
+	<td><label>Boots: </label></td><td><input type=text  id="boots"></td>
+</tr>
+<tr>
+	<td><label>Earring1: </label></td><td><input type=text  id="earring1"></td>
+	<td><label>Earring2: </label></td><td><input type=text  id="earring2"></td>
+</tr>
+<tr>
+	<td><label>Ring1: </label></td><td><input type=text  id="ring1"></td>
+	<td><label>Ring2: </label></td><td><input type=text  id="ring2"></td>
+</tr>
+<tr>
+	<td><label>Neck: </label></td><td><input type=text  id="necklace"></td>
+	<td><label>Brooch: </label></td><td><input type=text  id="brooch"></td>
+</tr>
+<tr>
+  <td><label>Circlet: </label></td><td><input type=text  id="circlet"></td>
+  <td><label>Belt: </label></td><td><input type=text  id="belt"></td>
+</tr>
+<tr>
+  <td><label>Innerwear: </label></td><td><input type=text  id="innerwear"></td>
+  <td></td>
+</tr>
+
+
+</table>
+<label>Round ilvl </label><input type="checkbox" id="round"><br/>
+<input type="button" id="action" value="Calculate">
+</form><br/>
+
+<label>Item Level: </label><input type=text id="result" readonly>
+
+</body>
+</html>
